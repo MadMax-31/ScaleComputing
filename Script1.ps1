@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-Script to delete snapshot via UUID that are listed in the specified file.
+Script to select certain data from the Scale Cluster
 
 .PARAMETER Server
 Cluster/System to test the API against
@@ -12,7 +12,7 @@ User credentials used to authenticate with the server
 Ignore Invalid/self-signed certificate errors
 
 .EXAMPLE
-./vm-lifecycle.ps1 -Server server-name -Credential (Get-Credential) -DeleteList <filepath>
+./Script1.ps1 -Server server-name -Credential (Get-Credential)
 #>
 
 [CmdletBinding()]
@@ -22,8 +22,7 @@ Param(
     [ValidateNotNullOrEmpty()]
     [string] $Server,
     [PSCredential] $Credential = (Get-Credential -Message "Enter Scale HC3 Credentials"),
-    [switch] $SkipCertificateCheck,
-    [string] $filePath
+    [switch] $SkipCertificateCheck
 )
 
 $ErrorActionPreference = 'Stop';
